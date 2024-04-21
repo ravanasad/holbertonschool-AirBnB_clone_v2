@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """7-states_list.py"""
-from flask import Flask, render_template
 from models import storage
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -15,10 +15,10 @@ def states_list():
 
 
 @app.teardown_appcontext
-def teardown_db(ex):
+def teardown_db(context):
     """Remove the current SQLAlchemy Session"""
     storage.close()
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+    app.run(host='0.0.0.0', port=5000)
